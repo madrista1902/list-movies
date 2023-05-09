@@ -1,6 +1,9 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
-const Filtermovies = ({ titleFilter, ratingFilter, setTitleFilter, setRatingFilter }) => {
+const Filter = ({ titleFilter, ratingFilter, setTitleFilter, setRatingFilter }) => {
+  const { category } = useParams(); 
+
   const handleTitleChange = (event) => {
     setTitleFilter(event.target.value);
   };
@@ -11,6 +14,7 @@ const Filtermovies = ({ titleFilter, ratingFilter, setTitleFilter, setRatingFilt
 
   return (
     <div className="row">
+      <h1>Filter Movies by {category}</h1> {/* display the category from the URL */}
       <div className="col-md-6">
         <input type="text" className="form-control" placeholder="Search by Title" value={titleFilter} onChange={handleTitleChange} />
       </div>
@@ -28,4 +32,4 @@ const Filtermovies = ({ titleFilter, ratingFilter, setTitleFilter, setRatingFilt
   );
 };
 
-export default Filtermovies;
+export default Filter;
