@@ -1,17 +1,17 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
+import './MovieList.css';
+import { Container } from 'react-bootstrap';
 
 const MovieList = ({ movies }) => {
   return (
-    <div className="movie-list" style={{
-      display: 'flex',
-      justifyContent: 'space-around',
-      flexWrap: 'wrap'
-    }}>
-      {movies.map((movie) => (
-        <MovieCard movie={movie} key={movie.id} />
-      ))}
-    </div>
+    <Container fluid>
+      <div className="movie-list">
+        {movies.map((movie) => (
+          <MovieCard movie={movie} key={movie.id} />
+        ))}
+      </div>
+    </Container>
   );
 };
 
